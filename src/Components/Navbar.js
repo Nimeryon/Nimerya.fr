@@ -1,78 +1,84 @@
-import React, { Component, Fragment, useState } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 // Material-ui
-import { IconButton, AppBar, Toolbar, Typography, Link, SwipeableDrawer, Box, Divider, Container } from "@material-ui/core";
-import { MenuRounded, CloseRounded, ArrowRightRounded } from "@material-ui/icons";
+import { AppBar, Toolbar, Typography, Link, Box, Popper, ClickAwayListener, MenuList, MenuItem, Paper, Grow, Divider } from "@material-ui/core";
 // Style
 import useStyles from "../styles/style";
 
-class CurrentLink extends Component {
-    constructor(props) {
-        super(props);
-        this.isCurrentRoute = props.url == window.location.pathname;
-    }
-
-    render() {
-        return <Box width="100%" display="flex" justifyContent="center">
-            <Box width="25%" display="flex" justifyContent="center">
-                {this.isCurrentRoute ? (<ArrowRightRounded fontSize="large" style={{ alignSelf: "flex-start" }} />) : null}
-            </Box>
-            <Box width="75%">
-                <Link color="inherit" href={this.props.url} style={{ alignSelf: "flex-end" }}>
-                    <Typography align="right" variant="h6">
-                        {this.props.title}
-                    </Typography>
-                </Link>
-            </Box>
-        </Box>
-    }
-}
-
-class NavbarComponents extends Component {
-    render() {
-        return <AppBar position="relative">
-            <Toolbar variant="dense">
-                <IconButton
-                    color="inherit"
-                    onClick={() => this.props.toggleMenu(true)}>
-                    <MenuRounded />
-                </IconButton>
-                <Typography variant="h6">
-                    <Link href="/" color="inherit">
-                        {this.props.title}
-                    </Link>
-                </Typography>
-            </Toolbar>
-        </AppBar>;
-    }
-}
-
 const Navbar = () => {
     const classes = useStyles();
-    const [menuOpened, toggleMenu] = useState(false);
-    const toggleDrawer = (value) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    const [open, setOpen] = useState(false);
+    const anchorRef = useRef(null);
+
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
+    };
+
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
             return;
         }
 
-        toggleMenu(value);
+        setOpen(false);
     };
 
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        }
+    }
+
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = useRef(open);
+    useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            anchorRef.current.focus();
+        }
+
+        prevOpen.current = open;
+    }, [open]);
+
     return <Fragment>
-        <NavbarComponents title="PMMO Configurator" toggleMenu={toggleMenu} />
-        <SwipeableDrawer anchor="left" open={menuOpened} onOpen={toggleDrawer(true)} onClose={toggleDrawer(false)}>
-            <Container className={classes.drawer}>
-                <Box width="100%" display="flex" alignContent="center" justifyContent="center">
-                    <IconButton
+        <AppBar position="relative">
+            <Toolbar variant="dense" className={classes.navbar}>
+                <Typography variant="h6">
+                    <Link href="/" color="inherit">auriol-thomas.fr</Link>
+                </Typography>
+                <Divider flexItem={true} orientation="vertical" className={classes.dividerVertical} />
+                <Box>
+                    <Link color="inherit"
+                        ref={anchorRef}
+                        aria-controls={open ? 'menu-list-grow' : undefined}
+                        aria-haspopup="true"
                         color="inherit"
-                        onClick={() => toggleMenu(false)}>
-                        <CloseRounded />
-                    </IconButton>
+                        onClick={handleToggle}
+                    >
+                        <Typography variant="button" className={classes.hand}>
+                            TOOLS ▼
+                        </Typography>
+                        <Popper className={classes.navbarPop} open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                            {({ TransitionProps, placement }) => (
+                                <Grow
+                                    {...TransitionProps}
+                                    style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                                >
+                                    <Paper elevation={1}>
+                                        <ClickAwayListener onClickAway={handleClose}>
+                                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                                <Link href="/tools"><MenuItem onClick={handleClose}>Tools</MenuItem></Link>
+                                                <Divider className={classes.divider} />
+                                                <Link href="/tools/xp"><MenuItem onClick={handleClose}>Experience Curve Generator</MenuItem></Link>
+                                                <Link href="/tools/shape"><MenuItem onClick={handleClose}>Shape Generator</MenuItem></Link>
+                                            </MenuList>
+                                        </ClickAwayListener>
+                                    </Paper>
+                                </Grow>
+                            )}
+                        </Popper>
+                    </Link>
                 </Box>
-                <Divider className={classes.divider} />
-                <CurrentLink classes={classes} url="/" title="Home" />
-                <CurrentLink classes={classes} url="/xp" title="Xp" />
-            </Container>
-        </SwipeableDrawer>
+            </Toolbar>
+        </AppBar>
     </Fragment>;
 }
 

@@ -13,6 +13,13 @@ const useStyles = makeStyles({
         marginTop: 8,
         marginBottom: 8
     },
+    navbar: {
+        display: "flex",
+        flexDirection: "row"
+    },
+    navbarPop: {
+        marginTop: 8
+    },
     form: {
         padding: 8,
         height: "100%",
@@ -32,14 +39,13 @@ const useStyles = makeStyles({
         padding: 8
     },
     divider: {
-        margin: 8,
-        marginTop: 16,
-        marginBottom: 16
+        margin: 8
     },
-    drawer: {
-        padding: 8,
-        minWidth: 100,
-        width: "15%"
+    dividerVertical: {
+        margin: 8,
+        marginLeft: 16,
+        marginRight: 16,
+        backgroundColor: "rgba(255, 255, 255, 0.2)"
     },
     footer: {
         padding: 8,
@@ -48,7 +54,10 @@ const useStyles = makeStyles({
     },
     inputSlider: {
         marginTop: 4
-    }
+    },
+    hand: {
+        cursor: "pointer"
+    },
 });
 
 export default useStyles;

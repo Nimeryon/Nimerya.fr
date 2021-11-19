@@ -4,9 +4,9 @@ import { Paper, Box, Typography, Divider, Grid, TextField, Button, FormGroup } f
 // Chart
 import { Line } from "react-chartjs-2";
 // Components
-import InputSlider from "../Components/InputSlider";
+import InputSlider from "../../Components/inputSlider";
 // Style
-import useStyles from "../styles/style";
+import useStyles from "../../styles/style";
 
 const Forms = (props) => {
     const classes = props.classes;
@@ -49,11 +49,11 @@ const Forms = (props) => {
                 </Box>
                 <Divider className={classes.divider} />
                 <FormGroup className={classes.formGroup}>
-                    <TextField label="Max Level" inputProps={{ min: 1, max: 2000000000, type: "number" }} value={aMaxLevel} onChange={(e) => { setAMaxLevel(e.target.value) }} />
+                    <TextField label="Max Level" inputProps={{ min: 1, max: 10000, type: "number" }} value={aMaxLevel} onChange={(e) => { setAMaxLevel(e.target.value) }} />
                 </FormGroup>
                 <FormGroup className={classes.formGroup}>
-                    <InputSlider refresh={additiveRefresh} min={1.0} max={1000000.0} step={0.1} value={aBaseXP} onChange={setABaseXP} title="Base XP" />
-                    <InputSlider refresh={additiveRefresh} min={1.0} max={1000000.0} step={0.1} value={aXPIncrease} onChange={setAXPIncrease} title="XP Increase" />
+                    <InputSlider refresh={additiveRefresh} min={1} max={1000000} step={1} value={aBaseXP} onChange={setABaseXP} title="Base XP" />
+                    <InputSlider refresh={additiveRefresh} min={1} max={1000000} step={1} value={aXPIncrease} onChange={setAXPIncrease} title="XP Increase" />
                 </FormGroup>
                 <Box width="100%" display="flex" justifyContent="center" className={classes.formButtons}>
                     <FormGroup >
@@ -76,12 +76,12 @@ const Forms = (props) => {
                 </Box>
                 <Divider className={classes.divider} />
                 <FormGroup className={classes.formGroup}>
-                    <TextField label="Max Level" inputProps={{ min: 1, max: 2000000000, type: "number" }} value={eMaxLevel} onChange={(e) => { setEMaxLevel(e.target.value) }} />
+                    <TextField label="Max Level" inputProps={{ min: 1, max: 10000, type: "number" }} value={eMaxLevel} onChange={(e) => { setEMaxLevel(e.target.value) }} />
                 </FormGroup>
                 <FormGroup className={classes.formGroup}>
-                    <InputSlider refresh={exponentialRefresh} min={1.0} max={1000000.0} step={0.1} value={eBaseXP} onChange={setEBaseXP} title="Base XP" />
-                    <InputSlider refresh={exponentialRefresh} min={1.0} max={1000000.0} step={0.001} value={eBase} onChange={setEBase} title="Base" />
-                    <InputSlider refresh={exponentialRefresh} min={0.001} max={1000000.0} step={0.001} value={eRate} onChange={setERate} title="Rate" />
+                    <InputSlider refresh={exponentialRefresh} min={1} max={1000000} step={1} value={eBaseXP} onChange={setEBaseXP} title="Base XP" />
+                    <InputSlider refresh={exponentialRefresh} min={1.01} max={100.00} step={0.01} value={eBase} onChange={setEBase} title="Base" />
+                    <InputSlider refresh={exponentialRefresh} min={0.2} max={2.000} step={0.001} value={eRate} onChange={setERate} title="Rate" />
                 </FormGroup>
                 <Box width="100%" display="flex" justifyContent="center" className={classes.formButtons}>
                     <FormGroup >
@@ -159,7 +159,7 @@ const Xp = () => {
 
     return <Paper className={classes.view} elevation={1}>
         <Box width="100%" display="flex" justifyContent="center">
-            <Typography variant="h4">Xp</Typography>
+            <Typography variant="h4">Experience curve generator</Typography>
         </Box>
         <Divider className={classes.divider} />
         <Forms classes={classes} handleAdditive={handleAdditive} handleExponential={handleExponential} />

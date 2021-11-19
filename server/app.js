@@ -7,10 +7,7 @@ const path = require("path");
 app.use(helmet());
 app.use(express.static(__dirname + '/../public'));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
-app.get('/xp', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 

@@ -1,10 +1,12 @@
 
+const path = require('path');
+
 module.exports = {
 	entry: __dirname + '/src/Index.js',
 	mode: 'production',
 	devtool: 'cheap-module-source-map',
 	output: {
-		path: __dirname + '/public/js',
+		path: path.join(__dirname, 'public/js'),
 		filename: 'bundle.js'
 	},
 	watch: false,

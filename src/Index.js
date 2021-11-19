@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Views
-import Home from "./Views/Home";
-import Xp from "./Views/Xp";
+import Home from "./Views/home";
+import Tools from "./Views/Tools/tools";
 // Components
-import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
+import Navbar from './Components/navbar';
+import Footer from './Components/Footer/footer';
 // Material-ui
 import { CssBaseline, Container } from "@material-ui/core";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -26,19 +26,19 @@ const App = () => {
 	const classes = useStyles();
 
 	return <ThemeProvider theme={theme}>
-		<Router>
-			<div className={classes.root}>
-				<CssBaseline />
-				<Navbar />
-				<Container className={classes.main} component="main" maxWidth="lg">
-					<Switch>
-						<Route path="/" exact component={() => <Home />} />
-						<Route path="/xp" exact component={() => <Xp />} />
-					</Switch>
-				</Container>
-				<Footer />
-			</div>
-		</Router>
+		<div className={classes.root}>
+			<CssBaseline />
+			<Navbar />
+			<Container className={classes.main} component="main" maxWidth="lg">
+				<BrowserRouter>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/tools/*" element={<Tools />} />
+					</Routes>
+				</BrowserRouter>
+			</Container>
+			<Footer />
+		</div>
 	</ThemeProvider>;
 }
 
