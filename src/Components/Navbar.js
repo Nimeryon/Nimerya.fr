@@ -2,7 +2,7 @@ import React, { Fragment, useState, useRef, useEffect } from "react";
 // Material-ui
 import { AppBar, Toolbar, Typography, Link, Box, Popper, ClickAwayListener, MenuList, MenuItem, Paper, Grow, Divider } from "@material-ui/core";
 // Style
-import useStyles from "../styles/style";
+import useStyles from "../styles/style.js";
 
 const Navbar = () => {
     const classes = useStyles();

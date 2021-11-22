@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { ListItem, InputLabel, Divider, IconButton, Tooltip, Grid } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 // Components
-import InputSlider from "../inputSlider";
+import InputSlider from "../inputSlider.js";
 
 const Point = (props) => {
     const pointRef = useRef();

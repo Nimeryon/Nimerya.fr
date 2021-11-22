@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 // Material-ui
 import { Box, Typography } from "@material-ui/core";
 // Components
-import Point from "./point";
+import Point from "./point.js";
 
 const PointList = (props) => {
     const classes = props.classes;
