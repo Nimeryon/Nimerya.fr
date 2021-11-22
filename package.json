@@ -5,6 +5,9 @@
     "license": "MIT",
     "description": "auriol-thomas.fr",
     "main": "app.js",
+    "engines": {
+      "node": ">=12.13.0"
+    },
     "scripts": {
         "start": "node server/app.js",
         "dev": "nodemon server/app.js",
