@@ -3,7 +3,7 @@ import { Toolbar, Box } from "@material-ui/core";
 // Components
 import CopyrightComponent from "../../Components/Footer/copyright.js";
 // Style
-import useStyles from "../../styles/style.js";
+import useStyles from "/styles/style.js";
 
 const Footer = () => {
     const classes = useStyles();

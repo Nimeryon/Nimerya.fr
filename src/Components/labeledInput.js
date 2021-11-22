@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // Material-ui
 import { Box, TextField, Grid, InputLabel } from "@material-ui/core";
 // Style
-import useStyles from "../styles/style.js";
+import useStyles from "/styles/style.js";
 
 const LabeledInput = (props) => {
     const classes = useStyles();
