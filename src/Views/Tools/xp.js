@@ -6,7 +6,7 @@ import { Line } from "react-chartjs-2";
 // Components
 import InputSlider from ".//Components/inputSlider.js";
 // Style
-import useStyles from ".//styles/style.js";
+import useStyles from "../../styles/style.js";
 
 const Forms = (props) => {
     const classes = props.classes;

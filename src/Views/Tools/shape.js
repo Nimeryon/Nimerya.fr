@@ -4,7 +4,7 @@ import { Paper, Box, Typography, Divider, Grid } from "@material-ui/core";
 // Components
 import Form from ".//Components/Shape/form.js";
 // Style
-import useStyles from ".//styles/style.js";
+import useStyles from "../../styles/style.js";
 
 const Canvas = forwardRef((props, ref) => <canvas className={props.className ? props.className : null} ref={ref} onContextMenu={(e) => { e.preventDefault(); return false; }} />);
 
