@@ -6,8 +6,9 @@ module.exports = {
 	mode: 'production',
 	devtool: 'cheap-module-source-map',
 	output: {
+		path: path.join(__dirname, 'public/js'),
 		filename: './public/jsbundle.js',
-		publicPath: "/"
+		publicPath: "./src/"
 	},
 	watch: false,
 	module: {
