@@ -14,6 +14,9 @@ module.exports = {
 		publicPath: "./src/"
 	},
 	watch: false,
+	plugins: [
+		new CaseSensitivePathsPlugin()
+	],
 	module: {
 		rules: [
 			{
@@ -29,7 +32,6 @@ module.exports = {
 							]
 						],
 						plugins: [
-							new CaseSensitivePathsPlugin(),
 							["@babel/plugin-proposal-class-properties"]
 						]
 					}
