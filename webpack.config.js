@@ -5,6 +5,9 @@ module.exports = {
 	entry: './src/Index.js',
 	mode: 'production',
 	devtool: 'cheap-module-source-map',
+	resolve: {
+		extensions: ['.js', '.jsx', '.ts', '.tsx'],
+	},
 	output: {
 		path: path.join(__dirname, 'public/js'),
 		filename: './public/jsbundle.js',
