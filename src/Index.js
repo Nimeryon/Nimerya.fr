@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Views
-import Home from ".//Views/home.js";
-import Tools from ".//Views/Tools/tools.js";
+import Home from "./Views/home.js";
+import Tools from "./Views/Tools/tools.js";
 // Components
-import Navbar from './/Components/navbar.js';
-import Footer from './/Components/Footer/footer.js';
+import Navbar from './Components/navbar.js';
+import Footer from './Components/Footer/footer.js';
 // Material-ui
 import { CssBaseline, Container } from "@material-ui/core";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 // Colors
 import { deepPurple } from "@material-ui/core/colors";
 // Style
-import useStyles from './/styles/style.js';
+import useStyles from './styles/style.js';
 
 const theme = createTheme({
 	palette: {
