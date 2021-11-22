@@ -3,13 +3,13 @@ const path = require('path');
 
 module.exports = {
 	entry: __dirname + '/src/Index.js',
-	mode: 'development',
+	mode: 'production',
 	devtool: 'cheap-module-source-map',
 	output: {
 		path: path.join(__dirname, 'public/js'),
 		filename: 'bundle.js'
 	},
-	watch: true,
+	watch: false,
 	module: {
 		rules: [
 			{
