@@ -47,7 +47,7 @@ const Forms = (props) => {
                 <Box width="100%" display="flex" justifyContent="center">
                     <Typography variant="h6">Additive</Typography>
                 </Box>
-                <Divider className={classes.divider} />
+                <Divider variant="middle" />
                 <FormGroup className={classes.formGroup}>
                     <TextField label="Max Level" inputProps={{ min: 1, max: 10000, type: "number" }} value={aMaxLevel} onChange={(e) => { setAMaxLevel(e.target.value) }} />
                 </FormGroup>
@@ -74,7 +74,7 @@ const Forms = (props) => {
                 <Box width="100%" display="flex" justifyContent="center">
                     <Typography variant="h6">Exponential</Typography>
                 </Box>
-                <Divider className={classes.divider} />
+                <Divider variant="middle" />
                 <FormGroup className={classes.formGroup}>
                     <TextField label="Max Level" inputProps={{ min: 1, max: 10000, type: "number" }} value={eMaxLevel} onChange={(e) => { setEMaxLevel(e.target.value) }} />
                 </FormGroup>
@@ -161,9 +161,10 @@ const Xp = () => {
         <Box width="100%" display="flex" justifyContent="center">
             <Typography variant="h4">Experience curve generator</Typography>
         </Box>
-        <Divider className={classes.divider} />
+        <Box width="100%" className={classes.main}>
+            <Divider variant="middle" />
+        </Box>
         <Forms classes={classes} handleAdditive={handleAdditive} handleExponential={handleExponential} />
-        <Divider className={classes.divider} />
         <Line
             data={chart}
             options={{

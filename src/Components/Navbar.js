@@ -44,7 +44,7 @@ const Navbar = () => {
                 <Typography variant="h6">
                     <Link href="/" color="inherit">auriol-thomas.fr</Link>
                 </Typography>
-                <Divider flexItem={true} orientation="vertical" className={classes.dividerVertical} />
+                <Divider flexItem={true} orientation="vertical" className={classes.dividerWhite} variant="middle" />
                 <Box>
                     <Link color="inherit"
                         ref={anchorRef}
@@ -56,26 +56,26 @@ const Navbar = () => {
                         <Typography variant="button" className={classes.hand}>
                             TOOLS ▼
                         </Typography>
-                        <Popper className={classes.navbarPop} open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                            {({ TransitionProps, placement }) => (
-                                <Grow
-                                    {...TransitionProps}
-                                    style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                                >
-                                    <Paper elevation={1}>
-                                        <ClickAwayListener onClickAway={handleClose}>
-                                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                                <Link href="/tools"><MenuItem onClick={handleClose}>Tools</MenuItem></Link>
-                                                <Divider className={classes.divider} />
-                                                <Link href="/tools/xp"><MenuItem onClick={handleClose}>Experience Curve Generator</MenuItem></Link>
-                                                <Link href="/tools/shape"><MenuItem onClick={handleClose}>Shape Generator</MenuItem></Link>
-                                            </MenuList>
-                                        </ClickAwayListener>
-                                    </Paper>
-                                </Grow>
-                            )}
-                        </Popper>
                     </Link>
+                    <Popper className={classes.navbarPop} open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                        {({ TransitionProps, placement }) => (
+                            <Grow
+                                {...TransitionProps}
+                                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                            >
+                                <Paper elevation={1}>
+                                    <ClickAwayListener onClickAway={handleClose}>
+                                        <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                            <Link href="/tools"><MenuItem onClick={handleClose}>Tools</MenuItem></Link>
+                                            <Divider variant="middle" />
+                                            <Link href="/tools/xp"><MenuItem onClick={handleClose}>Experience Curve Generator</MenuItem></Link>
+                                            <Link href="/tools/shape"><MenuItem onClick={handleClose}>Shape Generator</MenuItem></Link>
+                                        </MenuList>
+                                    </ClickAwayListener>
+                                </Paper>
+                            </Grow>
+                        )}
+                    </Popper>
                 </Box>
             </Toolbar>
         </AppBar>

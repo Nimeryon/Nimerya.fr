@@ -7,57 +7,88 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-        minWidth: 400
+        minWidth: "400px"
+    },
+    fullWidth: {
+        width: "100%"
+    },
+    fullHeight: {
+        height: "100%"
     },
     main: {
-        marginTop: 8,
-        marginBottom: 8
+        marginTop: "8px",
+        marginBottom: "8px"
     },
     navbar: {
         display: "flex",
         flexDirection: "row"
     },
     navbarPop: {
-        marginTop: 8
+        marginTop: "8px"
     },
     form: {
-        padding: 8,
+        padding: "8px",
         height: "100%",
         display: "flex",
         flexDirection: "column",
     },
+    shapeForm: {
+        flexGrow: 1,
+        padding: "8px",
+        display: "flex",
+        flexDirection: "column",
+    },
     formGroup: {
-        padding: 8
+        margin: "4px",
+        padding: "4px"
     },
     formButtons: {
-        padding: 8,
+        padding: "8px",
         flex: 1,
         flexDirection: "column",
         justifyContent: "flex-end"
     },
     view: {
-        padding: 8
+        padding: "8px"
     },
-    divider: {
-        margin: 8
-    },
-    dividerVertical: {
-        margin: 8,
-        marginLeft: 16,
-        marginRight: 16,
+    dividerWhite: {
+        marginLeft: "16px",
+        marginRight: "16px",
         backgroundColor: "rgba(255, 255, 255, 0.2)"
     },
     footer: {
-        padding: 8,
+        padding: "8px",
         marginTop: "auto",
         backgroundColor: grey[300],
     },
     inputSlider: {
-        marginTop: 4
+        marginTop: "8px"
     },
     hand: {
         cursor: "pointer"
     },
+    shapeCanvas: {
+        border: "2px outset rgba(103,58,183,0.35);"
+    },
+    pointList: {
+        height: "100%",
+        overflow: "hidden",
+        overflowY: "scroll",
+    },
+    area: {
+        height: "100%",
+        overflow: "hidden",
+        overflowY: "scroll",
+        resize: "none"
+    },
+    listForm: {
+        height: "40%",
+        maxHeight: "40%"
+    },
+    areaForm: {
+        height: "20%",
+        maxHeight: "20%"
+    }
 });
 
 export default useStyles;
