@@ -4,7 +4,7 @@ import { Paper, Box, Typography, Divider, Grid, TextField, Button, FormGroup } f
 // Chart
 import { Line } from "react-chartjs-2";
 // Components
-import InputSlider from ".//Components/inputSlider.js";
+import InputSlider from "../../Components/inputSlider.js";
 // Style
 import useStyles from "../../styles/style.js";
 

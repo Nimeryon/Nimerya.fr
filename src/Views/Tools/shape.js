@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, forwardRef } from "react";
 // Material-ui
 import { Paper, Box, Typography, Divider, Grid } from "@material-ui/core";
 // Components
-import Form from ".//Components/Shape/form.js";
+import Form from "../../Components/Shape/form.js";
 // Style
 import useStyles from "../../styles/style.js";
 
