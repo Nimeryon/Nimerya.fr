@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Paper, Box, Button, Grid, FormGroup, List, IconButton, Tooltip, InputLabel, Radio, RadioGroup, FormControlLabel, FormControl } from "@material-ui/core";
 import { AddCircleOutline } from "@material-ui/icons";
 // Components
-import InputSlider from "/Components/inputSlider.js";
-import LabeledInput from "/Components/labeledInput.js";
-import PointList from "/Components/Shape/pointList.js";
+import InputSlider from ".//Components/inputSlider.js";
+import LabeledInput from ".//Components/labeledInput.js";
+import PointList from ".//Components/Shape/pointList.js";
 
 const Form = (props) => {
     const classes = props.classes;

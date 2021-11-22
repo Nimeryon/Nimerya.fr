@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 // Views
-import Xp from "/Views/Tools/xp.js";
-import Shape from "/Views/Tools/shape.js";
+import Xp from ".//Views/Tools/xp.js";
+import Shape from ".//Views/Tools/shape.js";
 // Material-ui
 import { Paper, Box, Typography } from "@material-ui/core";
 
