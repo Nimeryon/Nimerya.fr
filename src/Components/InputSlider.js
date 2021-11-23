@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // Material-ui
 import { Box, Grid, Slider, TextField, InputLabel } from "@material-ui/core";
 // Style
-import useStyles from "../styles/style.js";
+import useStyles from "../Styles/Style.js";
 
 const InputSlider = (props) => {
     const classes = useStyles();

@@ -1,22 +1,15 @@
 const path = require('path');
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 module.exports = {
 	entry: './src/Index.js',
 	mode: 'production',
 	devtool: 'cheap-module-source-map',
-	resolve: {
-		extensions: ['.js', '.jsx', '.ts', '.tsx'],
-	},
 	output: {
-		path: path.join(__dirname, 'public/js'),
-		filename: './public/jsbundle.js',
-		publicPath: "./src/"
+		path: path.join(__dirname, 'public'),
+		filename: 'bundle.js',
+		publicPath: '/',
 	},
 	watch: false,
-	plugins: [
-		new CaseSensitivePathsPlugin()
-	],
 	module: {
 		rules: [
 			{

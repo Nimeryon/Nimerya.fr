@@ -1,9 +1,9 @@
 // Material-ui
 import { Toolbar, Box } from "@material-ui/core";
 // Components
-import CopyrightComponent from "./copyright.js";
+import CopyrightComponent from "./Copyright.js";
 // Style
-import useStyles from "../../styles/style.js";
+import useStyles from "../../Styles/Style.js";
 
 const Footer = () => {
     const classes = useStyles();
